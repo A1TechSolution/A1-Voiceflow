@@ -121,7 +121,7 @@ async def _build_usage_cost_snapshot(
     cost_info = {
         "cost_breakdown": cost_breakdown,
         "total_cost_usd": float(total_cost_usd),
-        "a1-voiceflow_token_usage": a1-voiceflow_tokens,
+        "a1_voiceflow_token_usage": a1-voiceflow_tokens,
         "calculated_at": calculated_at
         or (workflow_run.created_at.isoformat() if workflow_run is not None else None),
         "call_duration_seconds": usage_info.get("call_duration_seconds", 0),
@@ -169,7 +169,7 @@ async def apply_workflow_run_usage_to_organization(
 
     await _update_organization_usage(
         org,
-        float(cost_info.get("a1-voiceflow_token_usage") or 0),
+        float(cost_info.get("a1_voiceflow_token_usage") or 0),
         float(cost_info.get("call_duration_seconds") or 0),
         cost_info.get("charge_usd"),
     )
@@ -188,7 +188,7 @@ async def apply_usage_delta_to_organization(
 
     await _update_organization_usage(
         org,
-        float(cost_info.get("a1-voiceflow_token_usage") or 0),
+        float(cost_info.get("a1_voiceflow_token_usage") or 0),
         float(cost_info.get("call_duration_seconds") or 0),
         cost_info.get("charge_usd"),
     )
@@ -223,7 +223,7 @@ async def calculate_workflow_run_cost(workflow_run_id: int):
             # Don't fail the whole cost calculation if usage update fails
 
         logger.info(
-            f"Calculated cost for workflow run: ${cost_info['total_cost_usd']:.6f} USD ({cost_info['a1-voiceflow_token_usage']} A1 Voiceflow Tokens)"
+            f"Calculated cost for workflow run: ${cost_info['total_cost_usd']:.6f} USD ({cost_info['a1_voiceflow_token_usage']} A1 Voiceflow Tokens)"
         )
     except Exception as e:
         logger.error(f"Error calculating cost for workflow run: {e}")

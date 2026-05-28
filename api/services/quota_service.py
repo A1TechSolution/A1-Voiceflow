@@ -77,7 +77,7 @@ async def check_a1-voiceflow_quota(
             a1-voiceflow_api_keys.add(user_config.tts.api_key)
 
         # If not using A1 Voiceflow, quota check passes
-        if not using_a1-voiceflow:
+        if not using_"a1-voiceflow":
             return QuotaCheckResult(has_quota=True)
 
         # Check quota for ALL A1 Voiceflow keys

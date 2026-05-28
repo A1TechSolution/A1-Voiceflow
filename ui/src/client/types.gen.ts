@@ -4696,7 +4696,7 @@ export type WorkflowRunUsageResponse = {
     /**
      * A1 Voiceflow Token Usage
      */
-    a1-voiceflow_token_usage: number;
+    a1_voiceflow_token_usage: number;
     /**
      * Call Duration Seconds
      */

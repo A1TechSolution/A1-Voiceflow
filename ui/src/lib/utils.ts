@@ -115,8 +115,8 @@ export function setStackRefreshCookie(refreshToken: string) {
   const expiryDate = new Date();
   expiryDate.setFullYear(expiryDate.getFullYear() + 1);
 
-  const isA1 VoiceflowDomain = window.location.hostname.endsWith('.a1techsolution.com');
-  const cookieDomainPart = isA1 VoiceflowDomain ? '; domain=.a1techsolution.com' : '';
+  const isA1VoiceflowDomain = window.location.hostname.endsWith('.a1techsolution.com');
+  const cookieDomainPart = isA1VoiceflowDomain ? '; domain=.a1techsolution.com' : '';
 
   document.cookie =
     `stack-refresh-${process.env.NEXT_PUBLIC_STACK_PROJECT_ID}=${refreshToken}; ` +

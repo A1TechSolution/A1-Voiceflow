@@ -558,7 +558,7 @@ export default function UsagePage() {
                                                     <TableCell className="text-right font-medium">
                                                         {organizationPricing?.price_per_second_usd && run.charge_usd !== undefined && run.charge_usd !== null
                                                             ? `$${run.charge_usd.toFixed(2)}`
-                                                            : run.a1-voiceflow_token_usage.toLocaleString()
+                                                            : run.a1_voiceflow_token_usage.toLocaleString()
                                                         }
                                                     </TableCell>
                                                     <TableCell>

@@ -26,7 +26,7 @@ interface WorkflowRunResponse {
     transcript_url: string | null;
     recording_url: string | null;
     cost_info: {
-        a1-voiceflow_token_usage?: number | null;
+        a1_voiceflow_token_usage?: number | null;
         call_duration_seconds?: number | null;
     } | null;
     initial_context: Record<string, string | number | boolean | object> | null;
@@ -91,7 +91,7 @@ function RunMetricsSection({
                 <MetricCard label="Duration" value={formatDuration(costInfo?.call_duration_seconds)} />
                 <MetricCard
                     label="Token Usage"
-                    value={costInfo?.a1-voiceflow_token_usage != null ? costInfo.a1-voiceflow_token_usage.toLocaleString() : 'N/A'}
+                    value={costInfo?.a1_voiceflow_token_usage != null ? costInfo.a1_voiceflow_token_usage.toLocaleString() : 'N/A'}
                 />
                 <MetricCard label="User Turns" value={String(metrics.userTurns)} />
                 <MetricCard label="Bot Turns" value={String(metrics.botTurns)} />

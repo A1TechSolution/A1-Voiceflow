@@ -148,7 +148,7 @@ async def test_text_chat_session_creation_executes_initial_assistant_turn(
         "call_duration_seconds"
     ] == workflow_run.usage_info.get("call_duration_seconds", 0)
     assert "cost_breakdown" in workflow_run.cost_info
-    assert "a1-voiceflow_token_usage" in workflow_run.cost_info
+    assert "a1_voiceflow_token_usage" in workflow_run.cost_info
     assert _log_texts(run_payload["logs"], "rtf-bot-text") == [
         "Hello from the workflow tester."
     ]
@@ -268,7 +268,7 @@ async def test_text_chat_message_executes_assistant_turn(
         "call_duration_seconds"
     ] == workflow_run.usage_info.get("call_duration_seconds", 0)
     assert "cost_breakdown" in workflow_run.cost_info
-    assert "a1-voiceflow_token_usage" in workflow_run.cost_info
+    assert "a1_voiceflow_token_usage" in workflow_run.cost_info
     assert _log_texts(run_payload["logs"], "rtf-user-transcription") == ["Hi there"]
     assert _log_texts(run_payload["logs"], "rtf-bot-text") == [
         "Welcome to the workflow tester.",

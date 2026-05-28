@@ -45,7 +45,7 @@ class WorkflowRunUsageResponse(BaseModel):
     workflow_name: Optional[str]
     name: str
     created_at: str
-    a1-voiceflow_token_usage: float
+    a1_voiceflow_token_usage: float
     call_duration_seconds: int
     recording_url: Optional[str] = None
     transcript_url: Optional[str] = None

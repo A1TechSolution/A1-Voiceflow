@@ -308,8 +308,8 @@ class OrganizationUsageClient(BaseDBClient):
             total_duration_seconds = 0
             for run in runs:
                 if run.cost_info:
-                    # Try to get a1-voiceflow_token_usage first (new format)
-                    a1-voiceflow_tokens = run.cost_info.get("a1-voiceflow_token_usage", 0)
+                    # Try to get a1_voiceflow_token_usage first (new format)
+                    a1-voiceflow_tokens = run.cost_info.get("a1_voiceflow_token_usage", 0)
                     # If not present, calculate from total_cost_usd (old format)
                     if a1-voiceflow_tokens == 0 and "total_cost_usd" in run.cost_info:
                         a1-voiceflow_tokens = round(
@@ -346,7 +346,7 @@ class OrganizationUsageClient(BaseDBClient):
                     "workflow_name": run.workflow.name if run.workflow else None,
                     "name": run.name,
                     "created_at": run.created_at.isoformat(),
-                    "a1-voiceflow_token_usage": a1-voiceflow_tokens,
+                    "a1_voiceflow_token_usage": a1-voiceflow_tokens,
                     "call_duration_seconds": int(round(call_duration)),
                     "recording_url": run.recording_url,
                     "transcript_url": run.transcript_url,

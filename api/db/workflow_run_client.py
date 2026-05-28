@@ -313,10 +313,10 @@ class WorkflowRunClient(BaseDBClient):
                         "recording_url": run.recording_url,
                         "transcript_url": run.transcript_url,
                         "cost_info": {
-                            "a1-voiceflow_token_usage": (
-                                run.cost_info.get("a1-voiceflow_token_usage")
+                            "a1_voiceflow_token_usage": (
+                                run.cost_info.get("a1_voiceflow_token_usage")
                                 if run.cost_info
-                                and "a1-voiceflow_token_usage" in run.cost_info
+                                and "a1_voiceflow_token_usage" in run.cost_info
                                 else round(
                                     float(run.cost_info.get("total_cost_usd", 0)) * 100,
                                     2,

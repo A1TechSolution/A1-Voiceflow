@@ -55,7 +55,7 @@ export const VoiceSelector: React.FC<VoiceSelectorProps> = ({
             deepgram: "deepgram",
             sarvam: "sarvam",
             cartesia: "cartesia",
-            a1-voiceflow: "a1-voiceflow",
+            "a1-voiceflow": "a1-voiceflow",
             rime: "rime",
         };
         return providerMap[providerName.toLowerCase()] || null;

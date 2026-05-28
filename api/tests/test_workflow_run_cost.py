@@ -50,7 +50,7 @@ async def test_build_workflow_run_cost_info_does_not_update_org_usage(monkeypatc
     assert cost_info is not None
     assert cost_info["call_duration_seconds"] == 7
     assert "cost_breakdown" in cost_info
-    assert "a1-voiceflow_token_usage" in cost_info
+    assert "a1_voiceflow_token_usage" in cost_info
     assert cost_info["charge_usd"] == 10.5
     update_usage.assert_not_called()
 
@@ -162,19 +162,19 @@ async def test_apply_usage_delta_to_organization_uses_incremental_costs(
     assert update_usage.await_count == 2
     assert update_usage.await_args_list[0].args == (
         42,
-        first_delta["a1-voiceflow_token_usage"],
+        first_delta["a1_voiceflow_token_usage"],
         3.0,
         first_delta["charge_usd"],
     )
     assert update_usage.await_args_list[1].args == (
         42,
-        second_delta["a1-voiceflow_token_usage"],
+        second_delta["a1_voiceflow_token_usage"],
         4.0,
         second_delta["charge_usd"],
     )
     assert (
-        first_delta["a1-voiceflow_token_usage"] + second_delta["a1-voiceflow_token_usage"]
-    ) == pytest.approx(total_cost["a1-voiceflow_token_usage"])
+        first_delta["a1_voiceflow_token_usage"] + second_delta["a1_voiceflow_token_usage"]
+    ) == pytest.approx(total_cost["a1_voiceflow_token_usage"])
     assert (
         first_delta["charge_usd"] + second_delta["charge_usd"]
         == total_cost["charge_usd"]
